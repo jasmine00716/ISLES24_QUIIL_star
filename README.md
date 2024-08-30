@@ -18,7 +18,7 @@ ISLES24_QUIIL_star/
 │   │   └── mobilevit_v3_block.py
 │   │   └── moret_3d.py
 │   │   └── vit_block.py
-│   └── maktry_model_structure.py
+│   └── model_structure.py
 ├── resources/
 │   ├── weights/
 │   │   └── final_weight_2.pt  # This will be downloaded through the link above.
