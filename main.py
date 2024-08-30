@@ -5,10 +5,10 @@ import numpy as np
 import os
 import datetime
 
-from models.maktry_model_structure import UNetWithConcat
+from models.model_structure import UNetWithConcat
 from utils.common.hyperparameters import optimizer_fc
-from utils.common.isles_data_loader_maktry import brain_dataset_preparation, dataloading_maktry
-from utils.common.train_val_test_loop_maktry import train_model, val_cal
+from utils.common.isles_data_loader import brain_dataset_preparation, dataloading
+from utils.common.train_val_test_loop import train_model, val_cal
 
 seed = 42
 random.seed(seed)
@@ -25,7 +25,7 @@ torch.backends.cudnn.deterministic = True
 torch.backends.cudnn.benchmark = False
 
 
-def isles24_maktry_loop(args):
+def isles24_loop(args):
     device = (f"cuda:{args.cuda_num}" if torch.cuda.is_available() else "cpu")
 
     model = UNetWithConcat(args.in_channel,args.out_channel, modeltype=args.model, device=device)
@@ -36,8 +36,8 @@ def isles24_maktry_loop(args):
     traindata_nii_df = brain_dataset_preparation('utils/sample_data/train')
     valdata_nii_df = brain_dataset_preparation('utils/sample_data/val')
 
-    train_dataloader = dataloading_maktry(traindata_nii_df, shuffle=True, batch_size=args.batch_size, modality=args.modality, is_augmented=True)
-    val_dataloader = dataloading_maktry(valdata_nii_df, shuffle=True, batch_size=args.batch_size, modality=args.modality, is_augmented=True)
+    train_dataloader = dataloading(traindata_nii_df, shuffle=True, batch_size=args.batch_size, modality=args.modality, is_augmented=True)
+    val_dataloader = dataloading(valdata_nii_df, shuffle=True, batch_size=args.batch_size, modality=args.modality, is_augmented=True)
 
     num_epochs = args.epochs
 
@@ -98,7 +98,7 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    isles24_maktry_loop(args)
+    isles24_loop(args)
 
 # python main.py --cuda_num 0 --init_lr 0.0001 --epochs 100 --model 'cnn' --batch_size 1 --in_channel 3 --modality 'tmaxoff'
 # python main.py --cuda_num 1 --init_lr 0.0001 --epochs 100 --model 'cnn' --batch_size 1 --in_channel 4 --modality 'tmax'
