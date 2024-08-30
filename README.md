@@ -6,7 +6,7 @@
 3. Add "final_weight_2.pt" to "resources/weights"
 
 The structure of repository should look like this:
-
+```bash
 ISLES24_QUIIL_star/
 ├── Best_Model
 ├── file_dir_csvs/
@@ -44,3 +44,4 @@ ISLES24_QUIIL_star/
 │   │   │   └── sub-stroke0004_ses-02_lesion-msk.nii.gz
 │   └── isles_eval_util.py
 └── main.py
+```
