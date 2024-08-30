@@ -1,7 +1,6 @@
 # ISLES24_QUIIL_star
 
 ## Instructions
----------
 1. Create directory "resources/weights"
 2. Download pretrained weight from "https://drive.google.com/file/d/1af6u3eBRlzoPA_Ycmdz8twgU_L8MS6Qd/view?usp=sharing"
 3. Add "final_weight_2.pt" to "resources/weights"
