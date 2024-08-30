@@ -12,7 +12,7 @@ The structure of repository should look like this:
 ISLES24_QUIIL_star/
 ├── Best_Model
 ├── file_dir_csvs/
-│   └── (... other files ...)
+│   └── ...
 ├── models/
 │   ├── MoReT_3D/
 │   │   └── mobilevit_v3_block.py
@@ -24,7 +24,7 @@ ISLES24_QUIIL_star/
 │   │   └── final_weight_2.pt  # This will be downloaded through the link above.
 ├── utils/
 │   ├── common/
-│   │   └── (... other files ...)
+│   │   └── ...
 │   ├── sample_data/  # These are selected randomly for test.
 │   │   └── train/ 
 │   │   │   └── sub-stokre0003_ses-01_cta.nii.gz
