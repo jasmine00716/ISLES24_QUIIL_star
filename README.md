@@ -1,4 +1,4 @@
-# ISLES24_QUIIL_star
+# ISLES24_QUiiL_star
 
 ## Instructions
 1. Create directory "resources/weights"
